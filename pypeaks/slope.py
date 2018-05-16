@@ -15,7 +15,7 @@ def find_nearest_index(arr, value):
 
 def _datacheck_peakdetect(x_axis, y_axis):
     if x_axis is None:
-        x_axis = range(len(y_axis))
+        x_axis = list(range(len(y_axis)))
     
     if len(y_axis) != len(x_axis):
         raise ValueError('Input vectors y_axis and x_axis must have same length')
@@ -70,11 +70,11 @@ def peakdetect(y_axis, x_axis=None, lookahead=300, delta=0):
     
     #perform some checks
     if lookahead < 1:
-        raise ValueError, "Lookahead must be '1' or above in value"
+        raise ValueError("Lookahead must be '1' or above in value")
     #NOTE: commented this to use the function with log(histogram)
     #if not (np.isscalar(delta) and delta >= 0):
     if not (np.isscalar(delta)):
-        raise ValueError, "delta must be a positive number"
+        raise ValueError("delta must be a positive number")
     
     #maxima and minima candidates are temporarily stored in
     #mx and mn respectively
